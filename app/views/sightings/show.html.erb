@@ -22,8 +22,12 @@
 
 <p>
   <strong>Animal:</strong>
-  <%= @sighting.animal.common_name %>
+  <a href = '/animals/<%=@sighting.animal.id%>'><%= @sighting.animal.common_name %></a>
 </p>
 
+<p>
+  <strong>Region:</strong>
+  <%= @sighting.region %>
+</p>
 <%= link_to 'Edit', edit_sighting_path(@sighting) %> |
 <%= link_to 'Back', sightings_path %>
