@@ -5,14 +5,14 @@ class SightingsController < ApplicationController
   # GET /sightings.json
   def index
     #check to see if the dates are not nil
-    if !params[:start_date].nil? && !params[:end_date].nil?
+    if !params[:start_date].nil? && !params[:end_date].nil? && !params[:start_date].strip.empty? && !params[:end_date].strip.empty?
       #check to see if the dates are not empty
-      if !params[:start_date].strip.empty? && !params[:end_date].strip.empty?
         #show the sightings that fall between the date range
-        @sightings = Sighting.where(date: params[:start_date]..params[:end_date])
-        render ('sightings/index.html.erb')
+      if params[:start_date] > params[:end_date]
+        flash.now[:alert]="Please choose a valid range!"
+        @sightings = []
       else
-        @sightings = Sighting.all
+        @sightings = Sighting.where(date: params[:start_date]..params[:end_date], region: params[:sighting][:region])
       end
     else
       @sightings = Sighting.all

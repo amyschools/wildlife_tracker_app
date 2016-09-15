@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Sightings</h1>
+<%= flash.now[:alert]%>
 
 <table class="table">
   <thead>
@@ -19,7 +20,7 @@
     <% @sightings.each do |sighting| %>
       <tr>
         <td><%= sighting.date %></td>
-        <td><%= sighting.time %></td>
+        <td><%= sighting.time.strftime("%H:%M") %></td>
         <td><%= sighting.latitude %></td>
         <td><%= sighting.longitude %></td>
         <td><%= sighting.region %></td>
@@ -36,9 +37,11 @@
 
 <form action="/sightings" method="get">
   <label for="start_date">Start date</label>
-  <input id="start_date" name="start_date" type="text">
+  <input id="start_date" name="start_date" type="date">
   <label for="end_date">End date</label>
-  <input id="end_date" name="end_date" type="text">
+  <input id="end_date" name="end_date" type="date">
+  <div class="field"> <%=select(:sighting, :region, options_for_select([["North","North"], ["South", "South"], ["East", "East"], ["West", "West"]]))%>
+  </div>
   <button>Run report</button>
 </form>
 <hr>

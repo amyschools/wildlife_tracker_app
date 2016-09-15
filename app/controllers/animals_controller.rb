@@ -10,7 +10,7 @@ class AnimalsController < ApplicationController
   # GET /animals/1
   # GET /animals/1.json
   def show
-    
+
   end
 
   # GET /animals/new
@@ -20,13 +20,14 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1/edit
   def edit
+    @animal = Animal.find(params[:id])
   end
 
   # POST /animals
   # POST /animals.json
   def create
     @animal = Animal.new(animal_params)
-
+    #@animal.kingdom = (animal_params[:kingdom])
     respond_to do |format|
       if @animal.save
         format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
