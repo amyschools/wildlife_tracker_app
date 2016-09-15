@@ -5,6 +5,9 @@ class AnimalsController < ApplicationController
   # GET /animals.json
   def index
     @animals = Animal.all
+    #if !params[:id].nil? && !params[:id].strip.empty?
+      @animal = Animal.first
+
   end
 
   # GET /animals/1
@@ -26,17 +29,18 @@ class AnimalsController < ApplicationController
   # POST /animals
   # POST /animals.json
   def create
-    @animal = Animal.new(animal_params)
-    #@animal.kingdom = (animal_params[:kingdom])
-    respond_to do |format|
-      if @animal.save
-        format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
-        format.json { render :show, status: :created, location: @animal }
-      else
-        format.html { render :new }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
+
+      @animal = Animal.new(animal_params)
+      #@animal.kingdom = (animal_params[:kingdom])
+      respond_to do |format|
+        if @animal.save
+          format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
+          format.json { render :show, status: :created, location: @animal }
+        else
+          format.html { render :new }
+          format.json { render json: @animal.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
 
   # PATCH/PUT /animals/1

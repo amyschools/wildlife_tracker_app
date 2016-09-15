@@ -24,16 +24,29 @@
           <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
+      <tr id="appendAnimal"></tr>
     </tbody>
   </table>
 </div>
 
-<br>
+<hr/>
+<p>
+  <input type="text" name="animal[common_name]" placeholder="Common Name" id="common_name" class="form-control"/>
+  <br/>
+  <input type="text" name="animal[latin_name]" placeholder="Latin Name" id="latin_name" class="form-control"/>
+  <br/>
+  <input type="text" name="animal[kingdom]" placeholder="Kingdom " id="kingdom" class="form-control"/>
+  <br/>
+  <input type="hidden" name="animal[id]" id="animal_id" value="<%=@animal.id%>"/>
+  <button id="add_new_animal" class="btn btn-default">Add New Animal</button>
+</p>
+
+<!--<br>-->
 <!--takes user to the new.html.erb-->
-<%= link_to 'New Animal', new_animal_path %>
-<br>
+<!--<%= link_to 'New Animal', new_animal_path %>
+<br>-->
 <!--takes user to the new.html.erb sighting page-->
-<%= link_to 'New Sighting', new_sighting_path %>
-<br>
+<!--<%= link_to 'New Sighting', new_sighting_path %>
+<br>-->
 <!--takes user to the sightings listing page-->
-<%= link_to 'View All Sightings', sightings_path %>
+<!--<%= link_to 'View All Sightings', sightings_path %>-->

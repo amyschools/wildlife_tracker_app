@@ -22,8 +22,31 @@
 </p>
 
 <p>
-  <%= link_to 'New Sighting', new_sighting_path %>
+  <ul id="appendSighting">
+  </ul>
 </p>
+<p>
+
+  <input type="date" name="sighting[date]" id="date" class="form-control"/>
+  <br/>
+  <input type="text" name="sighting[time]" placeholder="time" id="time" class="form-control"/>
+  <br/>
+  <input type="text" name="sighting[latitude]" placeholder="Latitude" id="latitude" class="form-control"/>
+    <br/>
+  <input type="text" name="sighting[longitude]" placeholder="Longitude" id="longitude" class="form-control"/>
+  <br/>
+  <select name="region" id="region" class="form-control">
+    <option value="North">North</option>
+    <option value="South">South</option>
+    <option value="East">East</option>
+    <option value="West">West</option>
+  </select>
+  <input type="hidden" name="animal[id]" id="animal_id" value="<%=@animal.id%>"/>
+  <br/>
+  <button id="addNewSighting" class="btn btn-default">Add New Sighting</button>
+
+</p>
+
 
 <%= link_to 'Edit', edit_animal_path(@animal) %> |
 <%= link_to 'Back', animals_path %>

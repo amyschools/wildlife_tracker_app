@@ -4,9 +4,8 @@ class SightingsController < ApplicationController
   # GET /sightings
   # GET /sightings.json
   def index
-    #check to see if the dates are not nil
+    #check to see if the dates are not nil or empty
     if !params[:start_date].nil? && !params[:end_date].nil? && !params[:start_date].strip.empty? && !params[:end_date].strip.empty?
-      #check to see if the dates are not empty
         #show the sightings that fall between the date range
       if params[:start_date] > params[:end_date]
         flash.now[:alert]="Please choose a valid range!"
@@ -17,6 +16,7 @@ class SightingsController < ApplicationController
     else
       @sightings = Sighting.all
     end
+    @sighting = Sighting.first
   end
 
   # GET /sightings/1
@@ -26,6 +26,7 @@ class SightingsController < ApplicationController
 
   # GET /sightings/new
   def new
+
     @sighting = Sighting.new
     @animals_for_select = Animal.all.map do |animal|
      [animal.common_name, animal.id]

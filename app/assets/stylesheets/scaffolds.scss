@@ -1,14 +1,23 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Catamaran', sans-serif;
   font-size: 13px;
   line-height: 18px;
+  background-color: #e1eae5;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Candal', sans-serif;
+  font-variant: small-caps;
+}
+
+th {
+  font-weight: bold;
+}
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Catamaran', sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -65,6 +74,7 @@ div {
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
+    font-family: 'Abril Fatface', cursive;
   }
 
   ul li {

@@ -20,7 +20,7 @@
     <% @sightings.each do |sighting| %>
       <tr>
         <td><%= sighting.date %></td>
-        <td><%= sighting.time.strftime("%H:%M") %></td>
+        <td><%= sighting.time %></td>
         <td><%= sighting.latitude %></td>
         <td><%= sighting.longitude %></td>
         <td><%= sighting.region %></td>
@@ -37,12 +37,13 @@
 
 <form action="/sightings" method="get">
   <label for="start_date">Start date</label>
-  <input id="start_date" name="start_date" type="date">
+  <input id="start_date" name="start_date" type="date" class="form-control">
   <label for="end_date">End date</label>
-  <input id="end_date" name="end_date" type="date">
-  <div class="field"> <%=select(:sighting, :region, options_for_select([["North","North"], ["South", "South"], ["East", "East"], ["West", "West"]]))%>
+  <input id="end_date" name="end_date" type="date" class="form-control">
+  <label for="region">Region</label>
+  <div class="field" class="form-control"> <%=select(:sighting, :region, options_for_select([["North","North"], ["South", "South"], ["East", "East"], ["West", "West"]]))%>
   </div>
-  <button>Run report</button>
+  <button class="btn btn-default">Run report</button>
 </form>
 <hr>
 <%= link_to 'New Sighting', new_sighting_path %>
