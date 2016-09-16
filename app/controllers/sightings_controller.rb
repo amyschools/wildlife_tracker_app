@@ -75,6 +75,15 @@ class SightingsController < ApplicationController
     end
   end
 
+  def get_events
+    @sightings = Sighting.all
+    events = []
+    @sightings.each do |sighting|
+      events << { id: sighting.id, title: sighting.animal.common_name, start: DateTime.new(sighting.date.year, sighting.date.month, sighting.date.day, sighting.time.hour, sighting.time.min, sighting.time.sec).to_s, url: "/sightings/" + sighting.id.to_s }
+    end
+    render :json => events.to_json
+  end
+
   # DELETE /sightings/1
   # DELETE /sightings/1.json
   def destroy

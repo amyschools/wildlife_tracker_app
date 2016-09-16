@@ -1,5 +1,5 @@
 <li> Date: <%= sighting.date %></li>
-<li> Time: <%= sighting.time %> </li>
+<li> Time: <%= sighting.time.strftime("%H:%M") %> </li>
 <li> Latitude: <%= sighting.latitude %></li>
 <li> Longitude: <%= sighting.longitude %></li>
 <br>
