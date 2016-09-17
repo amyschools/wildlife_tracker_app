@@ -32,8 +32,14 @@ class SightingsController < ApplicationController
      [animal.common_name, animal.id]
     end
 
-    if !params[:animal_id].nil?
+    @rangers_for_select = Ranger.all.map do |ranger|
+      [ranger.name, ranger.id]
+    end
+
+    if !params[:animal_id].nil? && !params[:ranger_id].nil?
       animal = Animal.find(params[:animal_id])
+      ranger = Ranger.find(params[:ranger_id])
+      @sighting.ranger = ranger
       @sighting.animal = animal
     end
   end
@@ -43,6 +49,11 @@ class SightingsController < ApplicationController
     @animals_for_select = Animal.all.map do |animal|
       [animal.common_name, animal.id]
     end
+
+    @rangers_for_select = Ranger.all.map do |ranger|
+      [ranger.name, ranger.id]
+    end
+
   end
 
   # POST /sightings
@@ -102,6 +113,6 @@ class SightingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sighting_params
-      params.require(:sighting).permit(:date, :time, :latitude, :longitude, :animal_id, :region, :start_date, :end_date)
+      params.require(:sighting).permit(:date, :time, :latitude, :longitude, :animal_id, :region, :start_date, :end_date, :ranger_id)
     end
 end

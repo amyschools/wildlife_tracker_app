@@ -28,14 +28,21 @@
     <%= f.text_field :longitude %>
   </div>
 
-  <div class="field"> <%=select(:sighting, :region, options_for_select([["North","North"], ["South", "South"], ["East", "East"], ["West", "West"]]))%>
+  <div class="field">
+    <label for="region">Select a Region</label>
+    <%=select(:sighting, :region, options_for_select([["North","North"], ["South", "South"], ["East", "East"], ["West", "West"]]))%>
   </div>
 
   <div class="field">
-    <%=select(:sighting, :animal_id, @animals_for_select, include_blank: true)%>
-    <!--<%= f.label :animal_id %><br>
-    <%= f.text_field :animal_id %> -->
+    <label for="animal">Select Animal</label>
+    <%=select(:sighting, :animal_id, @animals_for_select, class: "form-control", include_blank: true) %>
   </div>
+
+  <div class="field">
+    <label for="ranger">Select a Ranger</label>
+    <%=select(:sighting, :ranger_id, @rangers_for_select, include_blank: true)%>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

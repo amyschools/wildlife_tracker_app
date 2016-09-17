@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rangers
 #calendar route to add events in collection
   resources :sightings do
     get :get_events, on: :collection

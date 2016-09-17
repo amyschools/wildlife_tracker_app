@@ -13,6 +13,7 @@ $(document).ready(function(){
     timeFormat: "LT",
     dragOpacity: "0.5",
     eventColor: "#bdd684",
+
     eventClick: function(event) {
         if (event.url) {
           window.open(event.url);
