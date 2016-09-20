@@ -2,7 +2,7 @@ body {
   font-family: 'Catamaran', sans-serif;
   font-size: 16px;
   line-height: 20px;
-  background: url('/assets/forest.jpeg');
+  background: asset_path('forest.jpeg');
   background-size: cover;
 }
 
