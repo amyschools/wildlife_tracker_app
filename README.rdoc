@@ -1,28 +1,8 @@
-== README
+The Wildlife Tracker app was created using the Full Stack Rails framework. Some of the tools I used include Javascript, AJAX, the FullCalendar jQuery plugin, ActiveRecord and Postgres database tables. This app was created to be a resource for a National Park Ranger who has been tasked with an environmental impact study tracking the wildlife in the Oregon Forest. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The user can:
+Create and record sightings for individual animals (as well as read, edit and destroy)
+View all the sightings on a calendar
+Sort and filter sightings by date
+Create and assign sightings to individual Rangers
+Assign the sighting to a region.
